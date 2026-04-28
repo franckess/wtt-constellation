@@ -811,9 +811,10 @@
     }
     .panel.open { transform: translateY(0); }
     .panel-title { font-size: 26px; }
-    .search-input { width: 100%; }
-    .search-input:focus { width: 100%; }
-    .search-results { width: 100%; }
+    .search { right: 16px; bottom: 16px; }
+    .search-input { width: 200px; }
+    .search-input:focus { width: 240px; }
+    .search-results { width: 260px; }
   }
 
   /* ============ REDUCED MOTION ============ */
@@ -1004,8 +1005,13 @@
 
   /* ============ SEARCH / GUEST SPOTLIGHT ============ */
   .search {
-    margin-bottom: 14px;
-    position: relative;
+    position: fixed;
+    bottom: 52px;
+    right: 40px;
+    z-index: 15;
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.8s forwards;
   }
 
   .search-input {
@@ -1037,7 +1043,7 @@
   .search-results {
     position: absolute;
     bottom: calc(100% + 6px);
-    left: 0;
+    right: 0;
     width: 300px;
     background: var(--panel-bg);
     border: 1px solid var(--panel-edge);
@@ -1140,15 +1146,16 @@
 <div class="hint">Tap a star to open the episode</div>
 
 <aside class="legend">
-  <div class="search">
-    <input class="search-input" id="searchInput" type="text" placeholder="Find episode or guest..." aria-label="Search episodes">
-    <div class="search-results" id="searchResults" role="listbox"></div>
-  </div>
   <div class="legend-title">Themes across the season</div>
   <div class="legend-items" id="legendItems"></div>
 </aside>
 
 <div class="stats" id="stats"></div>
+
+<div class="search">
+  <input class="search-input" id="searchInput" type="text" placeholder="Find episode or guest..." aria-label="Search episodes">
+  <div class="search-results" id="searchResults" role="listbox"></div>
+</div>
 
 <aside class="panel" id="panel">
   <button class="panel-close" id="panelClose" aria-label="Close">×</button>
