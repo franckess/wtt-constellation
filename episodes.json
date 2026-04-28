@@ -13,11 +13,11 @@
       }
     ],
     "platforms": {
-      "spotify": "",
-      "youtube": "",
-      "apple": ""
+      "spotify": "https://open.spotify.com/show/5IFOM3h1s161b362Q79uLR",
+      "youtube": "https://www.youtube.com/@WhatTheTechPodcastAU",
+      "apple": "https://podcasts.apple.com/us/podcast/what-the-tech-podcast-au/id1866901744"
     },
-    "substackUrl": ""
+    "substackUrl": "https://www.whatthetech.com.au/"
   },
   "themes": [
     {
@@ -96,14 +96,14 @@
       "id": "s01e03",
       "season": 1,
       "number": 3,
-      "title": "Getting Hired in AI",
-      "releaseDate": "",
+      "title": "Breaking into the AI Job Market",
+      "releaseDate": "2024-12-22",
       "guest": {
         "name": "Patrick Choy",
         "role": "Recruiter specialising in AI & Data",
-        "company": "",
+        "company": "Talent Insights Group",
         "initials": "PC",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/patrickdchoy/"
       },
       "themes": [
         "careers-hiring",
@@ -118,23 +118,23 @@
       ],
       "standoutMoment": "The paradox of AI-assisted job applications: better CVs for everyone means less differentiation, not more.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/4tsnseG8joQ5VBbv7NM8vP?si=d039ae7c9df64f53",
+        "youtube": "https://youtu.be/IMTP-aejbAE?si=4MM9_shSkVGVOIEL",
+        "apple": "https://podcasts.apple.com/us/podcast/breaking-into-the-ai-job-market-w-patrick-choy-s1-e3/id1866901744?i=1000743970002"
       }
     },
     {
       "id": "s01e04",
       "season": 1,
       "number": 4,
-      "title": "Inside AI Coding Tools",
-      "releaseDate": "",
+      "title": "The Future of Software with AI Coding Tools",
+      "releaseDate": "2025-01-23",
       "guest": {
         "name": "Monmayuri Bantler",
         "role": "AI Engineering Leader (formerly GitLab, now Code Rabbit)",
         "company": "Code Rabbit",
         "initials": "MB",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/monmayuri-ray-713164a0/"
       },
       "themes": [
         "developer-tools",
@@ -150,23 +150,23 @@
       ],
       "standoutMoment": "Framing AI not as a creative tool but as an eraser of mundane friction — Googling, email polish, context switching.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/0BI2M0csqEAtu8br1JyXyS?si=Q1HcEsG3Q2yCAyqSrx5oRA",
+        "youtube": "https://youtu.be/RB6TCmJBbD0?si=Pjvz2xzw_OkPhnjY",
+        "apple": "https://podcasts.apple.com/us/podcast/the-future-of-software-with-ai-coding-assistant/id1866901744?i=1000743969951"
       }
     },
     {
       "id": "s01e05",
       "season": 1,
       "number": 5,
-      "title": "AI Regulation & the EU AI Act",
-      "releaseDate": "",
+      "title": "Innovation at Scale: AI Trends Fueling Enterprise Transformation",
+      "releaseDate": "2025-03-26",
       "guest": {
         "name": "Gabriel Sanguigno",
-        "role": "Mechanical Engineer & AI Practitioner",
-        "company": "",
+        "role": "Founder & CEO",
+        "company": "ToothFairyAI",
         "initials": "GS",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/gabriele-sanguigno/"
       },
       "themes": [
         "ethics-data",
@@ -182,23 +182,23 @@
       ],
       "standoutMoment": "A direct message to listening politicians: this isn't going away — deal with it.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/01xKnqZP1m4LS76p2hfaYf?si=QlJXBNplRPm514jvioi1Tw",
+        "youtube": "https://youtu.be/2WHBzGZXvps?si=-AB7yCL6HFseP2_3",
+        "apple": "https://podcasts.apple.com/us/podcast/innovation-at-scale-ai-trends-fueling-enterprise-transformation/id1866901744?i=1000743969917"
       }
     },
     {
       "id": "s01e06",
       "season": 1,
       "number": 6,
-      "title": "Securing the AI Era",
-      "releaseDate": "",
+      "title": "How AI is influencing Cybersecurity and Technology Operations",
+      "releaseDate": "2025-05-14",
       "guest": {
         "name": "Keith Marlow",
         "role": "Security Architect",
-        "company": "",
+        "company": "Aykira Internet Solutions",
         "initials": "KM",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/keithmarlow/"
       },
       "themes": [
         "ai-security",
@@ -214,9 +214,9 @@
       ],
       "standoutMoment": "The \"capable toy that can explode\" metaphor — a vivid image for why accessibility without guardrails is risky.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/45fSFpG1a6FySYFjL26aBe?si=pnftWHaCTUy13UQM_IU93g",
+        "youtube": "https://youtu.be/uBDXGoj7T8Q?si=RuLdDtn3VhKiu0n5",
+        "apple": "https://podcasts.apple.com/us/podcast/how-ai-is-influencing-cybersecurity-and-technology/id1866901744?i=1000743970032"
       }
     },
     {
@@ -224,13 +224,13 @@
       "season": 1,
       "number": 7,
       "title": "Leadership Mindset in the AI Era",
-      "releaseDate": "",
+      "releaseDate": "2025-07-06",
       "guest": {
         "name": "Hannah Maude",
         "role": "AI Leadership & Transformation Consultant",
-        "company": "",
+        "company": " Fire Up Skills | Fire & Forte",
         "initials": "HM",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/hannah-maudeau/"
       },
       "themes": [
         "ai-leadership",
@@ -246,9 +246,9 @@
       ],
       "standoutMoment": "Leadership framed not as \"choose AI\" but as a duty of care: your people need you to have a view.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/3eqIHvmlrGs1JwST1rKKou?si=sYp8Rjs-S1eImW-I-sueEQ",
+        "youtube": "https://youtu.be/KQAsHt-ieX4?si=ErqWjtBMVXT5zxEX",
+        "apple": "https://podcasts.apple.com/us/podcast/human-leadership-in-the-age-of-ai-w-hannah-maude-s1-e7/id1866901744?i=1000743969899"
       }
     },
     {
@@ -256,13 +256,13 @@
       "season": 1,
       "number": 8,
       "title": "Product Management in the AI Era",
-      "releaseDate": "",
+      "releaseDate": "2025-08-14",
       "guest": {
         "name": "Abraham Omorogbe",
         "role": "AI Product Manager",
-        "company": "Microsoft (previously Databricks)",
+        "company": "Microsoft",
         "initials": "AO",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/abeomor/"
       },
       "themes": [
         "ai-leadership",
@@ -280,23 +280,23 @@
       ],
       "standoutMoment": "If your CEO is shipping features with AI on weekends and you can't, the gap isn't a tooling problem — it's a curiosity problem.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/4VHxoDFz0yyBs8fgkjaya9?si=FIMJzT7mRV6hlxN043RSdQ",
+        "youtube": "https://youtu.be/IvnJ7d1Ig3o?si=_Pv4YqEYDE49uCH9",
+        "apple": "https://podcasts.apple.com/us/podcast/product-management-in-the-age-of-ai-w-abe-omorogbe-s1-e8/id1866901744?i=1000743969986"
       }
     },
     {
       "id": "s01e09",
       "season": 1,
       "number": 9,
-      "title": "AI Governance & Cross-Functional Teams",
-      "releaseDate": "",
+      "title": "Cross-Functional Governance: Building AI Teams that Work",
+      "releaseDate": "2025-09-22",
       "guest": {
         "name": "Shaila Pervin",
         "role": "AI Governance Practitioner",
-        "company": "",
+        "company": "Commonwealth Bank of Australia",
         "initials": "SP",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/shailapervin/"
       },
       "themes": [
         "ai-governance",
@@ -313,23 +313,23 @@
       ],
       "standoutMoment": "The sports analogy — knowing the rules lets you play with confidence inside the boundaries, and spot the openings.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/5yCmiMP3immXYuxFXA6QFG?si=L-miI_grQkyjw1E3dFckaw",
+        "youtube": "https://youtu.be/n6ybK2sxl1A?si=gJ7GqF0UFyTgefLl",
+        "apple": "https://podcasts.apple.com/us/podcast/cross-functional-governance-building-ai-teams-that/id1866901744?i=1000743969916"
       }
     },
     {
       "id": "s01e10",
       "season": 1,
       "number": 10,
-      "title": "The Evolution of Data Engineering",
-      "releaseDate": "",
+      "title": "AI Driven Data Engineering",
+      "releaseDate": "2025-11-01",
       "guest": {
         "name": "Christopher Simusokwe",
         "role": "Data Engineering Leader",
-        "company": "",
+        "company": "TPG Telecom",
         "initials": "CS",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/christophersimusokwe/"
       },
       "themes": [
         "data-engineering",
@@ -346,23 +346,23 @@
       ],
       "standoutMoment": "A prediction: data migration as we know it won't exist in a few years — it's a transitional artefact, like horseshoes.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/6EKxdkd99p6h10CPiuqJs6?si=Xmwi8cTPRSWxcEtTkCMFZA",
+        "youtube": "https://youtu.be/ZyEpCtMel-c?si=YcllquCQjMfYt614",
+        "apple": "https://podcasts.apple.com/us/podcast/ai-driven-data-engineering-w-christopher-simusokwe-s1-e10/id1866901744?i=1000743970001"
       }
     },
     {
       "id": "s02e01",
       "season": 2,
       "number": 1,
-      "title": "Building Australian AI from Scratch",
-      "releaseDate": "",
+      "title": "Australia Versus Big Tech",
+      "releaseDate": "2026-01-26",
       "guest": {
         "name": "Dave Lemphers",
-        "role": "Founder",
+        "role": "Co-Founder & CEO",
         "company": "Main Code",
         "initials": "DL",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/dlemphers/"
       },
       "themes": [
         "human-ai",
@@ -380,23 +380,23 @@
       ],
       "standoutMoment": "The Matilda naming story — evoking Banjo Paterson and the spirit of packing a swag to explore the frontier.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/13VXaCSJlmol7tCgEH7eJO?si=ARYFw-hqSRqoeQhxRkOCTQ",
+        "youtube": "https://youtu.be/u4Ln6K_bdvU?si=tqVT1timtE3GimLJ",
+        "apple": "https://podcasts.apple.com/us/podcast/australia-versus-big-tech-w-dave-lemphers/id1866901744?i=1000746770606"
       }
     },
     {
       "id": "s02e02",
       "season": 2,
       "number": 2,
-      "title": "Designing AI at Massive Scale",
-      "releaseDate": "",
+      "title": "How AI Shapes Product Design",
+      "releaseDate": "2026-02-26",
       "guest": {
         "name": "Christina (CJ) Jones",
-        "role": "Lead, Generative AI Design",
+        "role": "Head of Design Generative AI",
         "company": "Canva",
         "initials": "CJ",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/chrisjonesish/"
       },
       "themes": [
         "design-ai",
@@ -411,23 +411,23 @@
       ],
       "standoutMoment": "Reframing design as a problem-finding discipline rather than a solution-polishing one in the age of generative AI.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/0L9cA0ZIpRT09obyNKcKGn?si=y2oyboxuQPyNNg7HT_mfjQ",
+        "youtube": "https://youtu.be/30qUaeOxkDk?si=_mBpoE2fD32Y84jV",
+        "apple": "https://podcasts.apple.com/us/podcast/how-ai-shapes-product-design-w-cj/id1866901744?i=1000751801063"
       }
     },
     {
       "id": "s02e03",
       "season": 2,
       "number": 3,
-      "title": "AI Capability, Robotics and Women in STEM",
-      "releaseDate": "",
+      "title": "Who Owns Your Data in the AI Era",
+      "releaseDate": "2026-04-06",
       "guest": {
         "name": "Dr. Sue Keay",
         "role": "Founder, Robotics Australia Group",
-        "company": "Robotics Australia Group",
+        "company": "UNSW AI Institute & Robotics Australia Group",
         "initials": "SK",
-        "linkedin": ""
+        "linkedin": "https://www.linkedin.com/in/suekeay/"
       },
       "themes": [
         "aus-sovereignty",
@@ -445,9 +445,9 @@
       ],
       "standoutMoment": "The Neo robot critique — paying tens of thousands for a tele-operated robot that invites a stranger into your home as free training data.",
       "links": {
-        "spotify": "",
-        "youtube": "",
-        "apple": ""
+        "spotify": "https://open.spotify.com/episode/3hf6sSjJoRD3vffpfdSCc7?si=ACyUOJdsRDe45vVfYO3aKQ",
+        "youtube": "https://youtu.be/5qwcGoyIMho?si=9UXa2MOQg2Lfvjh7",
+        "apple": "https://podcasts.apple.com/us/podcast/who-owns-your-data-in-the-ai-era-w-dr-sue-keay/id1866901744?i=1000759497609"
       }
     }
   ]
