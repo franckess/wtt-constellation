@@ -902,6 +902,30 @@
     0%   { opacity: 0.6; transform: scale(1) translateY(0); }
     100% { opacity: 0;   transform: scale(0.3) translateY(8px); }
   }
+
+  /* ============ SEASON ORBIT RINGS ============ */
+  .season-ring {
+    fill: none;
+    stroke: rgba(255, 247, 230, 0.04);
+    stroke-width: 1;
+    stroke-dasharray: 4 8;
+    opacity: 0;
+    animation: fadeRing 1s ease forwards;
+    animation-delay: 2.5s;
+  }
+
+  .season-ring-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    fill: var(--ink-faint);
+    opacity: 0.5;
+    text-anchor: middle;
+  }
+
+  @keyframes fadeRing {
+    to { opacity: 1; }
+  }
 </style>
 </head>
 <body>
@@ -1039,6 +1063,35 @@ function render() {
   const placed = computePositions(DATA.episodes, cx, cy, scale);
 
   svg.innerHTML = '';
+
+  // season orbit rings
+  const ringsGroup = document.createElementNS(SVG_NS, 'g');
+  ringsGroup.setAttribute('class', 'season-rings');
+  const seasonMap = {};
+  placed.forEach(ep => {
+    const s = ep.season;
+    if (!seasonMap[s]) seasonMap[s] = [];
+    const dx = ep.x - cx;
+    const dy = ep.y - cy;
+    seasonMap[s].push(Math.hypot(dx, dy));
+  });
+  Object.entries(seasonMap).forEach(([season, radii]) => {
+    const avgRadius = radii.reduce((a, b) => a + b, 0) / radii.length;
+    const ring = document.createElementNS(SVG_NS, 'circle');
+    ring.setAttribute('cx', cx);
+    ring.setAttribute('cy', cy);
+    ring.setAttribute('r', avgRadius);
+    ring.setAttribute('class', 'season-ring');
+    ringsGroup.appendChild(ring);
+
+    const label = document.createElementNS(SVG_NS, 'text');
+    label.setAttribute('x', cx);
+    label.setAttribute('y', cy - avgRadius - 8);
+    label.setAttribute('class', 'season-ring-label');
+    label.textContent = `S${season}`;
+    ringsGroup.appendChild(label);
+  });
+  svg.appendChild(ringsGroup);
 
   // connections
   const linesGroup = document.createElementNS(SVG_NS, 'g');
