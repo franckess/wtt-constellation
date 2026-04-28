@@ -109,7 +109,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
     opacity: 0.04;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
     mix-blend-mode: overlay;
   }
 
@@ -117,7 +117,7 @@
   .bg-stars {
     position: fixed;
     inset: 0;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
     transform: translate(calc(var(--px) * 0.4), calc(var(--py) * 0.4));
     transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
@@ -272,7 +272,7 @@
   .stage {
     position: fixed;
     inset: 0;
-    z-index: 5;
+    z-index: 6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -419,7 +419,7 @@
     transform: rotate(var(--angle)) translateX(-200px);
     opacity: 0;
     pointer-events: none;
-    z-index: 3;
+    z-index: 4;
     animation: shootingStar 1.6s cubic-bezier(0.4, 0, 0.6, 1) forwards;
     filter: drop-shadow(0 0 4px rgba(255, 217, 168, 0.6));
   }
@@ -768,7 +768,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 4;
+    z-index: 5;
     text-align: center;
     font-family: 'Instrument Serif', serif;
     font-size: 15px;
@@ -823,6 +823,65 @@
     .connection { stroke-dashoffset: 0 !important; }
     .star-group { opacity: 1 !important; }
     .shooting-star { display: none; }
+    .nebula-layer { animation: none !important; }
+  }
+
+  /* ============ NEBULA CLOUDS ============ */
+  .nebula {
+    position: fixed;
+    inset: -60px;
+    z-index: 1;
+    pointer-events: none;
+    transform: translate(calc(var(--px) * 0.2), calc(var(--py) * 0.2));
+    transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nebula-layer {
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: screen;
+  }
+
+  .nebula-layer:nth-child(1) {
+    background:
+      radial-gradient(ellipse 55% 45% at 18% 25%, rgba(125, 211, 192, 0.18), transparent 65%),
+      radial-gradient(ellipse 45% 55% at 82% 70%, rgba(235, 179, 34, 0.20), transparent 60%);
+    animation: nebulaDrift1 35s ease-in-out infinite;
+  }
+
+  .nebula-layer:nth-child(2) {
+    background:
+      radial-gradient(ellipse 50% 40% at 65% 20%, rgba(167, 139, 250, 0.14), transparent 65%),
+      radial-gradient(ellipse 40% 50% at 30% 75%, rgba(209, 131, 201, 0.10), transparent 60%);
+    animation: nebulaDrift2 45s ease-in-out infinite;
+  }
+
+  .nebula-layer:nth-child(3) {
+    background:
+      radial-gradient(ellipse 60% 35% at 50% 50%, rgba(102, 197, 212, 0.12), transparent 65%),
+      radial-gradient(ellipse 35% 55% at 75% 40%, rgba(255, 142, 114, 0.10), transparent 60%);
+    animation: nebulaDrift3 55s ease-in-out infinite;
+  }
+
+  @keyframes nebulaDrift1 {
+    0%, 100% { transform: translate(0, 0); }
+    25%      { transform: translate(30px, -20px); }
+    50%      { transform: translate(-15px, 35px); }
+    75%      { transform: translate(-30px, -10px); }
+  }
+
+  @keyframes nebulaDrift2 {
+    0%, 100% { transform: translate(0, 0); }
+    25%      { transform: translate(-25px, 40px); }
+    50%      { transform: translate(35px, 15px); }
+    75%      { transform: translate(20px, -35px); }
+  }
+
+  @keyframes nebulaDrift3 {
+    0%, 100% { transform: translate(0, 0); }
+    25%      { transform: translate(40px, 25px); }
+    50%      { transform: translate(-30px, -40px); }
+    75%      { transform: translate(-15px, 50px); }
   }
 </style>
 </head>
@@ -841,6 +900,12 @@
 </header>
 
 <svg class="bg-stars" id="bgStars" preserveAspectRatio="xMidYMid slice"></svg>
+
+<div class="nebula">
+  <div class="nebula-layer"></div>
+  <div class="nebula-layer"></div>
+  <div class="nebula-layer"></div>
+</div>
 
 <div class="stage">
   <svg id="constellation" preserveAspectRatio="xMidYMid meet"></svg>
