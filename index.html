@@ -811,6 +811,19 @@
     }
     .panel.open { transform: translateY(0); }
     .panel-title { font-size: 26px; }
+    .search {
+      bottom: auto;
+      top: 140px;
+      left: 16px;
+      right: 16px;
+    }
+    .search-input { width: 100%; }
+    .search-input:focus { width: 100%; }
+    .search-results {
+      width: 100%;
+      bottom: auto;
+      top: calc(100% + 6px);
+    }
   }
 
   /* ============ REDUCED MOTION ============ */
@@ -997,6 +1010,116 @@
     font-size: 11px;
     color: var(--ink-soft);
   }
+
+  /* ============ SEARCH / GUEST SPOTLIGHT ============ */
+  .search {
+    position: fixed;
+    bottom: 120px;
+    left: 40px;
+    z-index: 15;
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.8s forwards;
+  }
+
+  .search-input {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    background: rgba(14, 16, 48, 0.6);
+    border: 1px solid var(--panel-edge);
+    border-radius: 100px;
+    padding: 9px 16px;
+    width: 220px;
+    outline: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .search-input::placeholder {
+    color: var(--ink-faint);
+  }
+
+  .search-input:focus {
+    width: 280px;
+    border-color: var(--star-warm);
+    box-shadow: 0 0 16px rgba(235, 179, 34, 0.15);
+  }
+
+  .search-results {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 0;
+    width: 300px;
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-edge);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    overflow: hidden;
+    display: none;
+  }
+
+  .search-results.visible {
+    display: block;
+  }
+
+  .search-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(235, 179, 34, 0.08);
+    color: var(--ink);
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+
+  .search-result:last-child { border-bottom: none; }
+
+  .search-result:hover {
+    background: rgba(255, 217, 168, 0.08);
+  }
+
+  .search-result .guest-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+    flex-shrink: 0;
+    animation: none;
+  }
+
+  .search-result-title {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .search-result-guest {
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+
+  /* Spotlight sonar ping */
+  .star-group.spotlight .star-halo {
+    animation: spotlightPing 1.5s ease-out forwards !important;
+  }
+
+  .star-group.spotlight .star-core {
+    transform: scale(1.6);
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes spotlightPing {
+    0%   { opacity: 0.15; transform: scale(1); }
+    40%  { opacity: 0.5;  transform: scale(2.5); }
+    100% { opacity: 0.04; transform: scale(1); }
+  }
 </style>
 </head>
 <body>
@@ -1035,6 +1158,11 @@
 </aside>
 
 <div class="stats" id="stats"></div>
+
+<div class="search">
+  <input class="search-input" id="searchInput" type="text" placeholder="Find episode or guest..." aria-label="Search episodes">
+  <div class="search-results" id="searchResults" role="listbox"></div>
+</div>
 
 <aside class="panel" id="panel">
   <button class="panel-close" id="panelClose" aria-label="Close">×</button>
@@ -1405,6 +1533,86 @@ function setupCursorTrail() {
   });
 }
 
+/* ---- Search / Guest Spotlight ---- */
+function setupSearch() {
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    if (q.length < 2) {
+      results.classList.remove('visible');
+      results.innerHTML = '';
+      return;
+    }
+
+    const matches = DATA.episodes.filter(ep =>
+      ep.title.toLowerCase().includes(q) ||
+      ep.guest.name.toLowerCase().includes(q)
+    ).slice(0, 5);
+
+    if (matches.length === 0) {
+      results.classList.remove('visible');
+      results.innerHTML = '';
+      return;
+    }
+
+    results.innerHTML = matches.map(ep => `
+      <button class="search-result" role="option" data-id="${ep.id}">
+        <div class="guest-avatar">${escapeHtml(ep.guest.initials || '·')}</div>
+        <div>
+          <div class="search-result-title">${escapeHtml(ep.title)}</div>
+          <div class="search-result-guest">${escapeHtml(ep.guest.name)}</div>
+        </div>
+      </button>
+    `).join('');
+    results.classList.add('visible');
+
+    results.querySelectorAll('.search-result').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const epId = btn.dataset.id;
+        input.value = '';
+        results.classList.remove('visible');
+        results.innerHTML = '';
+        spotlightEpisode(epId);
+      });
+    });
+  });
+
+  input.addEventListener('blur', () => {
+    // Delay so click on result registers before hide
+    setTimeout(() => {
+      results.classList.remove('visible');
+    }, 200);
+  });
+
+  // Escape dismisses search dropdown
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      input.value = '';
+      input.blur();
+      results.classList.remove('visible');
+      results.innerHTML = '';
+    }
+  });
+}
+
+function spotlightEpisode(epId) {
+  // Close existing panel and clear filters
+  closePanel();
+  if (activeTheme) setThemeFilter(activeTheme); // toggles off
+
+  // Add spotlight class
+  const starGroup = document.querySelector(`.star-group[data-id="${epId}"]`);
+  if (starGroup) {
+    starGroup.classList.add('spotlight');
+    setTimeout(() => starGroup.classList.remove('spotlight'), 1500);
+  }
+
+  // Open panel after a short delay so spotlight lands first
+  setTimeout(() => openPanel(epId), 400);
+}
+
 /* ---- Episode detail panel ---- */
 function openPanel(epId) {
   const ep = DATA.episodes.find(e => e.id === epId);
@@ -1607,6 +1815,7 @@ loadData()
     setupParallax();
     startShootingStars();
     setupCursorTrail();
+    setupSearch();
     setTimeout(spawnShootingStar, 3500);
 
     let resizeTimer;
