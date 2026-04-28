@@ -48,10 +48,6 @@ Add an entry to the `themes` array in `episodes.json`:
 
 Pick jewel-tone colors (moderately saturated, medium-bright) that read well against the deep navy background.
 
-## Deployment
-
-See [DEPLOY.md](DEPLOY.md) for the full setup guide — GitHub Pages hosting, Substack nav tab integration, custom domain, and troubleshooting.
-
 ## Listen
 
 - [Spotify](https://open.spotify.com/show/5IFOM3h1s161b362Q79uLR)
