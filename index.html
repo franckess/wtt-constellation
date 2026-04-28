@@ -824,6 +824,7 @@
     .star-group { opacity: 1 !important; }
     .shooting-star { display: none; }
     .nebula-layer { animation: none !important; }
+    .cursor-trail { display: none; }
   }
 
   /* ============ NEBULA CLOUDS ============ */
@@ -883,6 +884,24 @@
     50%      { transform: translate(-30px, -40px); }
     75%      { transform: translate(-15px, 50px); }
   }
+
+  /* ============ CURSOR TRAIL ============ */
+  .cursor-trail {
+    position: fixed;
+    inset: 0;
+    z-index: 7;
+    pointer-events: none;
+  }
+
+  .trail-particle {
+    fill: var(--star-warm);
+    animation: trailFade 500ms ease-out forwards;
+  }
+
+  @keyframes trailFade {
+    0%   { opacity: 0.6; transform: scale(1) translateY(0); }
+    100% { opacity: 0;   transform: scale(0.3) translateY(8px); }
+  }
 </style>
 </head>
 <body>
@@ -906,6 +925,8 @@
   <div class="nebula-layer"></div>
   <div class="nebula-layer"></div>
 </div>
+
+<svg class="cursor-trail" id="cursorTrail" preserveAspectRatio="xMidYMid slice"></svg>
 
 <div class="stage">
   <svg id="constellation" preserveAspectRatio="xMidYMid meet"></svg>
@@ -1167,6 +1188,34 @@ function setupParallax() {
   tick();
 }
 
+/* ---- Comet cursor trail: stardust particles follow the mouse ---- */
+function setupCursorTrail() {
+  if (reducedMotion || 'ontouchstart' in window) return;
+  const trailSvg = document.getElementById('cursorTrail');
+  let lastEmit = 0;
+
+  function resizeTrailSvg() {
+    trailSvg.setAttribute('viewBox', `0 0 ${window.innerWidth} ${window.innerHeight}`);
+  }
+  resizeTrailSvg();
+  window.addEventListener('resize', resizeTrailSvg);
+
+  document.addEventListener('mousemove', e => {
+    const now = Date.now();
+    if (now - lastEmit < 40) return;
+    lastEmit = now;
+    if (document.hidden) return;
+
+    const c = document.createElementNS(SVG_NS, 'circle');
+    c.setAttribute('cx', e.clientX);
+    c.setAttribute('cy', e.clientY);
+    c.setAttribute('r', 1.5);
+    c.setAttribute('class', 'trail-particle');
+    trailSvg.appendChild(c);
+    c.addEventListener('animationend', () => c.remove());
+  });
+}
+
 /* ---- Episode detail panel ---- */
 function openPanel(epId) {
   const ep = DATA.episodes.find(e => e.id === epId);
@@ -1343,6 +1392,7 @@ loadData()
     render();
     setupParallax();
     startShootingStars();
+    setupCursorTrail();
     setTimeout(spawnShootingStar, 3500);
 
     let resizeTimer;
