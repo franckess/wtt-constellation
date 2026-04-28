@@ -926,6 +926,77 @@
   @keyframes fadeRing {
     to { opacity: 1; }
   }
+
+  /* ============ RELATED EPISODES PATH ============ */
+  .star-group.related .star-halo {
+    opacity: 0.25 !important;
+    transform: scale(1.15) !important;
+    animation: none;
+  }
+
+  .star-group.related .star-core {
+    filter: drop-shadow(0 0 16px rgba(255, 247, 230, 0.9))
+            drop-shadow(0 0 28px rgba(255, 217, 168, 0.5));
+  }
+
+  .star-group.related .star-label {
+    fill: var(--ink);
+  }
+
+  .connection.path-glow {
+    stroke: var(--line-active);
+    stroke-width: 1.5;
+    stroke-dasharray: 6 4;
+    opacity: 1;
+    animation: pathFlow 2s linear infinite;
+  }
+
+  @keyframes pathFlow {
+    to { stroke-dashoffset: -20; }
+  }
+
+  /* ---- "Explore next" card in panel ---- */
+  .panel-next {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    background: rgba(14, 16, 48, 0.4);
+    border: 1px solid var(--panel-edge);
+    border-radius: 10px;
+    color: var(--ink);
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .panel-next:hover {
+    border-color: var(--star-warm);
+    background: rgba(255, 217, 168, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -8px rgba(255, 217, 168, 0.4);
+  }
+
+  .panel-next .guest-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 15px;
+    flex-shrink: 0;
+    animation: none;
+  }
+
+  .panel-next .guest-name {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .panel-next .guest-role {
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
 </style>
 </head>
 <body>
@@ -1177,6 +1248,71 @@ function clearConnectionRipple() {
   document.querySelectorAll('.connection').forEach(line => line.classList.remove('ripple'));
 }
 
+/* ---- Find the most-connected related episode for "Explore next" ---- */
+function findBestNextEpisode(currentEp) {
+  const currentThemes = new Set(currentEp.themes);
+  let best = null;
+  let bestShared = 0;
+  let bestTotal = 0;
+
+  DATA.episodes.forEach(ep => {
+    if (ep.id === currentEp.id) return;
+    const shared = ep.themes.filter(t => currentThemes.has(t)).length;
+    if (shared === 0) return;
+    const total = ep.themes.length;
+    if (shared > bestShared || (shared === bestShared && total > bestTotal)) {
+      best = ep;
+      bestShared = shared;
+      bestTotal = total;
+    }
+  });
+  return best;
+}
+
+/* ---- Highlight stars and lines related to active episode ---- */
+function highlightRelatedEpisodes(epId) {
+  if (activeTheme) return; // theme filter takes precedence
+  const ep = DATA.episodes.find(e => e.id === epId);
+  if (!ep) return;
+  const epThemes = new Set(ep.themes);
+
+  const relatedIds = new Set();
+  DATA.episodes.forEach(other => {
+    if (other.id === epId) return;
+    if (other.themes.some(t => epThemes.has(t))) relatedIds.add(other.id);
+  });
+
+  document.querySelectorAll('.star-group').forEach(g => {
+    const id = g.dataset.id;
+    if (id === epId) return; // active star already styled
+    if (relatedIds.has(id)) g.classList.add('related');
+    else g.classList.add('dimmed');
+  });
+
+  document.querySelectorAll('.connection').forEach(line => {
+    const from = line.dataset.from;
+    const to = line.dataset.to;
+    const touchesActive = from === epId || to === epId;
+    const touchesRelated = relatedIds.has(from) || relatedIds.has(to);
+    if (touchesActive && touchesRelated) {
+      line.classList.add('path-glow');
+      line.classList.remove('dimmed');
+    } else {
+      line.classList.add('dimmed');
+      line.classList.remove('path-glow');
+    }
+  });
+}
+
+function clearRelatedHighlights() {
+  document.querySelectorAll('.star-group').forEach(g => {
+    g.classList.remove('related', 'dimmed');
+  });
+  document.querySelectorAll('.connection').forEach(line => {
+    line.classList.remove('path-glow', 'dimmed');
+  });
+}
+
 /* ---- Click burst: radial sparkle shower at a star position ---- */
 function createClickBurst(x, y) {
   if (reducedMotion) return;
@@ -1324,17 +1460,42 @@ function openPanel(epId) {
     ` : ''}
     <div class="panel-section-title">Listen</div>
     <div class="panel-links">${links}</div>
+    ${(() => {
+      const next = findBestNextEpisode(ep);
+      if (!next) return '';
+      return `
+        <div class="panel-section-title">Explore next</div>
+        <button class="panel-next" data-next-id="${next.id}">
+          <div class="guest-avatar">${escapeHtml(next.guest.initials || '·')}</div>
+          <div>
+            <div class="guest-name">${escapeHtml(next.title)}</div>
+            <div class="guest-role">${escapeHtml(next.guest.name)}</div>
+          </div>
+        </button>
+      `;
+    })()}
   `;
 
   // Retrigger the stagger animation when switching between episodes
   panel.classList.remove('open');
   void panel.offsetWidth; // force reflow
   panel.classList.add('open');
+
+  // highlight related episodes on the constellation
+  clearRelatedHighlights();
+  highlightRelatedEpisodes(epId);
+
+  // wire up "explore next" button
+  const nextBtn = content.querySelector('.panel-next');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => openPanel(nextBtn.dataset.nextId));
+  }
 }
 
 function closePanel() {
   document.getElementById('panel').classList.remove('open');
   document.querySelectorAll('.star-group').forEach(g => g.classList.remove('active'));
+  clearRelatedHighlights();
   activeEpisode = null;
 }
 
