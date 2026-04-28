@@ -1,0 +1,454 @@
+{
+  "podcast": {
+    "title": "What The Tech Podcast (AU)",
+    "tagline": "Conversations from the frontier of Australian tech and AI",
+    "hosts": [
+      {
+        "name": "Vivienne",
+        "role": "Host"
+      },
+      {
+        "name": "Rene",
+        "role": "Host"
+      }
+    ],
+    "platforms": {
+      "spotify": "",
+      "youtube": "",
+      "apple": ""
+    },
+    "substackUrl": ""
+  },
+  "themes": [
+    {
+      "id": "human-ai",
+      "name": "Human-Centered AI",
+      "color": "#FFB86B"
+    },
+    {
+      "id": "aus-sovereignty",
+      "name": "Australian AI Sovereignty",
+      "color": "#7DD3C0"
+    },
+    {
+      "id": "design-ai",
+      "name": "Design & AI",
+      "color": "#D183C9"
+    },
+    {
+      "id": "women-stem",
+      "name": "Women in STEM",
+      "color": "#F7D154"
+    },
+    {
+      "id": "entrepreneurship",
+      "name": "Entrepreneurship",
+      "color": "#94C4F5"
+    },
+    {
+      "id": "future-work",
+      "name": "Future of Work",
+      "color": "#FF8E72"
+    },
+    {
+      "id": "ethics-data",
+      "name": "Ethics & Data",
+      "color": "#A78BFA"
+    },
+    {
+      "id": "physical-ai",
+      "name": "Robotics & Physical AI",
+      "color": "#34D4A8"
+    },
+    {
+      "id": "ai-security",
+      "name": "AI Security",
+      "color": "#E8766B"
+    },
+    {
+      "id": "ai-governance",
+      "name": "AI Governance",
+      "color": "#D47FA6"
+    },
+    {
+      "id": "developer-tools",
+      "name": "AI Developer Tools",
+      "color": "#66C5D4"
+    },
+    {
+      "id": "careers-hiring",
+      "name": "Careers in AI",
+      "color": "#A8D676"
+    },
+    {
+      "id": "data-engineering",
+      "name": "Data Engineering",
+      "color": "#3FA4AF"
+    },
+    {
+      "id": "ai-leadership",
+      "name": "AI Leadership",
+      "color": "#D4846A"
+    }
+  ],
+  "episodes": [
+    {
+      "id": "s01e03",
+      "season": 1,
+      "number": 3,
+      "title": "Getting Hired in AI",
+      "releaseDate": "",
+      "guest": {
+        "name": "Patrick Choy",
+        "role": "Recruiter specialising in AI & Data",
+        "company": "",
+        "initials": "PC",
+        "linkedin": ""
+      },
+      "themes": [
+        "careers-hiring",
+        "future-work",
+        "developer-tools"
+      ],
+      "keyInsights": [
+        "If everyone's CV becomes equally polished with AI help, applicant-tracking systems lose their signal — the bottleneck shifts back to the human decision-maker.",
+        "Hybrid roles (ML engineer, analytics engineer) have moved from rare to standard in just a few years.",
+        "What used to sit outside pure AI has quietly absorbed AI expectations — the titles haven't changed but the required skills have.",
+        "The best move for candidates right now is treating AI fluency as a layer on top of their existing craft, not a replacement for it."
+      ],
+      "standoutMoment": "The paradox of AI-assisted job applications: better CVs for everyone means less differentiation, not more.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e04",
+      "season": 1,
+      "number": 4,
+      "title": "Inside AI Coding Tools",
+      "releaseDate": "",
+      "guest": {
+        "name": "Monmayuri Bantler",
+        "role": "AI Engineering Leader (formerly GitLab, now Code Rabbit)",
+        "company": "Code Rabbit",
+        "initials": "MB",
+        "linkedin": ""
+      },
+      "themes": [
+        "developer-tools",
+        "women-stem",
+        "human-ai",
+        "future-work"
+      ],
+      "keyInsights": [
+        "From an economic lens, machine learning and AI are both simply driving down the cost of prediction.",
+        "Code completion, generation and review are among the most impactful early generative-AI applications — not chatbots.",
+        "The real productivity gain isn't replacing the developer — it's removing the hours spent Googling small frustrations.",
+        "Evaluating whether coding assistants actually help is its own discipline, and harder than building them."
+      ],
+      "standoutMoment": "Framing AI not as a creative tool but as an eraser of mundane friction — Googling, email polish, context switching.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e05",
+      "season": 1,
+      "number": 5,
+      "title": "AI Regulation & the EU AI Act",
+      "releaseDate": "",
+      "guest": {
+        "name": "Gabriel Sanguigno",
+        "role": "Mechanical Engineer & AI Practitioner",
+        "company": "",
+        "initials": "GS",
+        "linkedin": ""
+      },
+      "themes": [
+        "ethics-data",
+        "ai-governance",
+        "aus-sovereignty",
+        "future-work"
+      ],
+      "keyInsights": [
+        "The EU is meaningfully ahead of Australia on AI regulation — and this is a wake-up call, not a far-future concern.",
+        "AI isn't a fad like crypto or the metaverse — it's becoming infrastructure, and regulators need to treat it that way.",
+        "Transformers were being explored by practitioners seven or eight years ago — today's attention is the tail end of a long curve.",
+        "Policy-makers who dismiss AI as passing hype are leaving their economies exposed to rules written elsewhere."
+      ],
+      "standoutMoment": "A direct message to listening politicians: this isn't going away — deal with it.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e06",
+      "season": 1,
+      "number": 6,
+      "title": "Securing the AI Era",
+      "releaseDate": "",
+      "guest": {
+        "name": "Keith Marlow",
+        "role": "Security Architect",
+        "company": "",
+        "initials": "KM",
+        "linkedin": ""
+      },
+      "themes": [
+        "ai-security",
+        "ethics-data",
+        "future-work",
+        "ai-governance"
+      ],
+      "keyInsights": [
+        "Traditional security was gated by heavy credentials; generative AI makes a frontier tool accessible in one browser tab.",
+        "Easy access hides complexity — the risk isn't malice, it's everyday users not knowing what the toy can or can't do.",
+        "Security paranoia paired with architecture thinking is a surprisingly effective combination for getting things built safely.",
+        "The education gap is the real vulnerability: people need to be taught the downsides of cuddly new technology."
+      ],
+      "standoutMoment": "The \"capable toy that can explode\" metaphor — a vivid image for why accessibility without guardrails is risky.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e07",
+      "season": 1,
+      "number": 7,
+      "title": "Leadership Mindset in the AI Era",
+      "releaseDate": "",
+      "guest": {
+        "name": "Hannah Maude",
+        "role": "AI Leadership & Transformation Consultant",
+        "company": "",
+        "initials": "HM",
+        "linkedin": ""
+      },
+      "themes": [
+        "ai-leadership",
+        "future-work",
+        "human-ai",
+        "careers-hiring"
+      ],
+      "keyInsights": [
+        "It's irresponsible for a leader today not to be thinking seriously about AI — it will reshape every organisation.",
+        "If you're not doing AI, your competitor is — and you had the chance to lead instead.",
+        "The reskilling numbers coming at us by 2030 aren't incremental — they're reshaping whole economies.",
+        "AI transformation is ultimately about humans — technology is just the catalyst."
+      ],
+      "standoutMoment": "Leadership framed not as \"choose AI\" but as a duty of care: your people need you to have a view.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e08",
+      "season": 1,
+      "number": 8,
+      "title": "Product Management in the AI Era",
+      "releaseDate": "",
+      "guest": {
+        "name": "Abraham Omorogbe",
+        "role": "AI Product Manager",
+        "company": "Microsoft (previously Databricks)",
+        "initials": "AO",
+        "linkedin": ""
+      },
+      "themes": [
+        "ai-leadership",
+        "future-work",
+        "developer-tools",
+        "human-ai",
+        "careers-hiring"
+      ],
+      "keyInsights": [
+        "AI product-market fit arrives like a wave, not a curve — zero to ten thousand users in weeks, not quarters.",
+        "A research paper published on Tuesday can be a startup product by Friday — AI PMs have to read the papers.",
+        "The line between technical and non-technical PM has collapsed; vibe coding is now part of the interview.",
+        "Creativity is king — the real differentiator is curiosity, cross-domain thinking, and a willingness to play.",
+        "Keep friends outside of AI — echo chambers are the fastest way to miss what users actually want."
+      ],
+      "standoutMoment": "If your CEO is shipping features with AI on weekends and you can't, the gap isn't a tooling problem — it's a curiosity problem.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e09",
+      "season": 1,
+      "number": 9,
+      "title": "AI Governance & Cross-Functional Teams",
+      "releaseDate": "",
+      "guest": {
+        "name": "Shaila Pervin",
+        "role": "AI Governance Practitioner",
+        "company": "",
+        "initials": "SP",
+        "linkedin": ""
+      },
+      "themes": [
+        "ai-governance",
+        "ethics-data",
+        "future-work",
+        "ai-leadership"
+      ],
+      "keyInsights": [
+        "Governance starts with principles, then structure, then process — in that order, not the other way around.",
+        "AI is software engineering with non-deterministic outputs — which means every existing function needs to relearn its role.",
+        "Cross-functional governance begins with executive sponsorship: someone has to own why we're doing this at all.",
+        "Governance is always evolving — accepting incompleteness is more realistic than waiting for a finished framework.",
+        "The legacy-vs-AI-native decision is now a strategic question: incrementally retrofit, or rebuild from scratch."
+      ],
+      "standoutMoment": "The sports analogy — knowing the rules lets you play with confidence inside the boundaries, and spot the openings.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s01e10",
+      "season": 1,
+      "number": 10,
+      "title": "The Evolution of Data Engineering",
+      "releaseDate": "",
+      "guest": {
+        "name": "Christopher Simusokwe",
+        "role": "Data Engineering Leader",
+        "company": "",
+        "initials": "CS",
+        "linkedin": ""
+      },
+      "themes": [
+        "data-engineering",
+        "developer-tools",
+        "future-work",
+        "ai-governance"
+      ],
+      "keyInsights": [
+        "Data engineering has shifted from \"data janitors\" to data product owners — reactive to proactive.",
+        "Unstructured data was always there; we just didn't have the tools to capture it. Now we do — and the volume is exponential.",
+        "The fundamentals haven't changed — SQL, data modelling, system design. The tooling has, and it keeps changing.",
+        "The next frontier is context engineering — orchestrating AI agents, not just crafting prompts.",
+        "Data migration as a discipline may disappear — why move data at all if the compute can come to it?"
+      ],
+      "standoutMoment": "A prediction: data migration as we know it won't exist in a few years — it's a transitional artefact, like horseshoes.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s02e01",
+      "season": 2,
+      "number": 1,
+      "title": "Building Australian AI from Scratch",
+      "releaseDate": "",
+      "guest": {
+        "name": "Dave Lemphers",
+        "role": "Founder",
+        "company": "Main Code",
+        "initials": "DL",
+        "linkedin": ""
+      },
+      "themes": [
+        "human-ai",
+        "aus-sovereignty",
+        "entrepreneurship",
+        "future-work",
+        "ethics-data",
+        "ai-leadership"
+      ],
+      "keyInsights": [
+        "AI should handle the cognitive load humans don't enjoy, freeing people to do what computers can't.",
+        "Australian-made AI isn't just about sovereignty — it's about laying a foundation for grassroots tech for generations to come.",
+        "Scarcity breeds better solutions: resource-constrained teams consistently outperform well-funded ones.",
+        "\"For humans\" is the first principle — not AGI, not ASI, not superintelligence as a north star."
+      ],
+      "standoutMoment": "The Matilda naming story — evoking Banjo Paterson and the spirit of packing a swag to explore the frontier.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s02e02",
+      "season": 2,
+      "number": 2,
+      "title": "Designing AI at Massive Scale",
+      "releaseDate": "",
+      "guest": {
+        "name": "Christina (CJ) Jones",
+        "role": "Lead, Generative AI Design",
+        "company": "Canva",
+        "initials": "CJ",
+        "linkedin": ""
+      },
+      "themes": [
+        "design-ai",
+        "human-ai",
+        "future-work"
+      ],
+      "keyInsights": [
+        "Design is the journey from problem to solution — not the polish at the end.",
+        "Polished AI outputs can bypass the thinking that actually makes solutions right for the people using them.",
+        "Scaling AI design for hundreds of millions of users means designing for many simultaneous realities at once.",
+        "Good design today demands defining the problem more carefully than ever — not less."
+      ],
+      "standoutMoment": "Reframing design as a problem-finding discipline rather than a solution-polishing one in the age of generative AI.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    },
+    {
+      "id": "s02e03",
+      "season": 2,
+      "number": 3,
+      "title": "AI Capability, Robotics and Women in STEM",
+      "releaseDate": "",
+      "guest": {
+        "name": "Dr. Sue Keay",
+        "role": "Founder, Robotics Australia Group",
+        "company": "Robotics Australia Group",
+        "initials": "SK",
+        "linkedin": ""
+      },
+      "themes": [
+        "aus-sovereignty",
+        "physical-ai",
+        "women-stem",
+        "entrepreneurship",
+        "ethics-data"
+      ],
+      "keyInsights": [
+        "AI adoption in Australia is still nascent outside financial services — most sectors are still working out what it means.",
+        "Robotics already has mature safety and accountability frameworks that non-physical AI can learn from.",
+        "Australian AI and robotics startups begin with roughly ten times less capital than US equivalents.",
+        "Under 10% of expert opinions in the media come from women — shaping what the next generation believes is possible.",
+        "Australia needs real AI infrastructure — GPUs, yes, but also funding to build models on our own valuable datasets."
+      ],
+      "standoutMoment": "The Neo robot critique — paying tens of thousands for a tele-operated robot that invites a stranger into your home as free training data.",
+      "links": {
+        "spotify": "",
+        "youtube": "",
+        "apple": ""
+      }
+    }
+  ]
+}
