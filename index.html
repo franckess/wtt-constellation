@@ -838,6 +838,7 @@
     .shooting-star { display: none; }
     .nebula-layer { animation: none !important; }
     .cursor-trail { display: none; }
+    .connection.path-glow { animation: none !important; }
   }
 
   /* ============ NEBULA CLOUDS ============ */
@@ -1597,10 +1598,12 @@ function setupSearch() {
   });
 }
 
+let spotlightTimer;
 function spotlightEpisode(epId) {
   // Close existing panel and clear filters
   closePanel();
   if (activeTheme) setThemeFilter(activeTheme); // toggles off
+  clearTimeout(spotlightTimer);
 
   // Add spotlight class
   const starGroup = document.querySelector(`.star-group[data-id="${epId}"]`);
@@ -1610,7 +1613,7 @@ function spotlightEpisode(epId) {
   }
 
   // Open panel after a short delay so spotlight lands first
-  setTimeout(() => openPanel(epId), 400);
+  spotlightTimer = setTimeout(() => openPanel(epId), 400);
 }
 
 /* ---- Episode detail panel ---- */
@@ -1827,6 +1830,7 @@ loadData()
         if (activeEpisode) {
           const g = document.querySelector(`.star-group[data-id="${activeEpisode}"]`);
           if (g) g.classList.add('active');
+          highlightRelatedEpisodes(activeEpisode);
         }
         if (activeTheme) setThemeFilter(activeTheme);
       }, 120);
